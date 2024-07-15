@@ -30,9 +30,9 @@ in {
     };
 
     #Users
-    users.users.harry = {
+    users.users.USER = {
         isNormalUser = true;
-        description = "harry";
+        description = "USER";
         extraGroups = [ "networkmanager" "wheel" "audio" ];
     };
 
