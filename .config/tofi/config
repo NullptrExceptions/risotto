@@ -1,0 +1,21 @@
+anchor = top
+
+# Width of your screen - 40 px
+width = 1640
+
+height = 20
+horizontal = true
+font-size = 12
+prompt-text = " run: "
+font = monospace
+text-color = #229ccd
+outline-width = 0
+border-width = 0
+background-color = #222222
+min-input-width = 120
+result-spacing = 15
+margin-top = 10
+padding-top = 0
+padding-bottom = 2
+padding-left = 20
+padding-right = 20
