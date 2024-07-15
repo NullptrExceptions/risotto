@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) pamixer -t ;;
+esac
+
+case $(pamixer --get-volume-human) in
+    muted) printf "🔇 " ;;
+    *)  printf "🔊 "
+esac
+
+echo "$(pamixer --get-volume)%"
