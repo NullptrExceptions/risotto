@@ -1,0 +1,42 @@
+#!/bin/sh
+
+if [ !/tmp/sb_clock ]
+then 
+    touch /tmp/sb_clock
+fi
+
+YES=1
+ISTOGGLED=$(cat /tmp/sb_clock)
+CLOCK=$(date '+%I')
+
+case $BLOCK_BUTTON in
+    1)
+        case $ISTOGGLED in
+            0)echo "1" > /tmp/sb_clock;;
+            *)echo "0" > /tmp/sb_clock;;
+        esac;;
+esac
+
+if [[ $ISTOGGLED -eq $YES ]] 
+then
+    printf "📅 "
+    date '+%m/%d/%Y'
+else
+    case "$CLOCK" in
+	"00") ICON="🕛" ;;
+	"01") ICON="🕐" ;;
+	"02") ICON="🕑" ;;
+	"03") ICON="🕒" ;;
+	"04") ICON="🕓" ;;
+	"05") ICON="🕔" ;;
+	"06") ICON="🕕" ;;
+	"07") ICON="🕖" ;;
+	"08") ICON="🕗" ;;
+	"09") ICON="🕘" ;;
+	"10") ICON="🕙" ;;
+	"11") ICON="🕚" ;;
+	"12") ICON="🕛" ;;
+    esac
+    printf "$ICON "
+    date '+%I:%M:%S'
+fi
