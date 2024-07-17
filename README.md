@@ -1,2 +1,2 @@
 # Risotto: The best type of rice
-My personal NixOS build, adapt to your liking
+My personal Arch configs, adapt to your liking
