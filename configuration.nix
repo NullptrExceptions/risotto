@@ -1,6 +1,23 @@
 { config, pkgs, ... }:
 
 let
+    dwl-nullptr-source = pkgs.fetchFromGitHub {
+        owner = "NullptrExceptions";
+        repo = "dwl-nullptr";
+        rev = "master";
+        hash = "sha256-Ukg2bgX7Jz6kXzY/OjOOmlststjfdkpI3JNW3DeFCP0=";
+    };
+
+    dwl-nullptr = (pkgs.callPackage "${dwl-nullptr-source}/dwl-nullptr.nix" {});
+
+    dwlblocks-source = pkgs.fetchFromGitHub {
+        owner = "NullptrExceptions";
+        repo = "dwlblocks";
+        rev = "master";
+        hash = "sha256-UJdM+v22N/tIFJ6PLtg9j3RjSId4UiUD51tzd2+d25E=";
+    };
+
+    dwlblocks = (pkgs.callPackage "${dwlblocks-source}/dwlblocks.nix" {});
 in {
     imports = [
         ./hardware-configuration.nix
@@ -55,6 +72,8 @@ in {
         playerctl
         lxqt.lxqt-policykit
         wl-color-picker
+        dwl-nullptr
+        dwlblocks
 
         curl
         wget
